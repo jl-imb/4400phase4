@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Test</h1>
+    <form method="POST" action="/testing">
+        <label>AirlineID</label><br>
+        <input type="text" name="airlineID"><br><br>
+        <label>tailnum</label><br>
+        <input type="text" name="tailnum"><br><br>
+        <label>seatcap</label><br>
+        <input type="text" name="seatcap"><br><br>
+        <label>speed</label><br>
+        <input type="text" name="speed"><br><br>
+        <label>locID</label><br>
+        <input type="text" name="locID"><br><br>
+        <label>Plane type</label><br>
+        <input type="text" name="type"><br><br>
+        <label>maintained</label><br>
+        <input type="text" name="maintained"><br><br>
+        <label>Model</label><br>
+        <input type="text" name="model"><br><br>
+        <label>neo</label><br>
+        <input type="text" name="neo"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <h1>result {{ reason }} </h1>
+    <h1>display</h1>
+    <ul>
+    {% for flight in flights %}
+        <li>{{ flight }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
