@@ -29,10 +29,14 @@
         <input type="submit" value="Submit">
     </form>
     <h1>result {{ reason }} </h1>
+    <form method = "POST" action = "/choose-table">
+        <input type = "text" name = "tablename">
+        <label>choose table</label><br>
+    </form>
     <h1>display</h1>
     <ul>
-    {% for flight in flights %}
-        <li>{{ flight }}</li>
+    {% for item in table %}
+        <li>{{ item }}</li>
     {% endfor %}
     </ul>
 </body>

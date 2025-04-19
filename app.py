@@ -4,9 +4,11 @@ from db.db import *
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/choose-table', methods=['POST'])
 def showdb():  # put application's code here
-    return return_table()
+    if request.method == 'POST':
+        tablename = request.form['tablename']
+    return return_table(tablename)
 
 @app.route('/testing', methods =['GET', 'POST'])
 def testing():
