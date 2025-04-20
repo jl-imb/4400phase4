@@ -33,6 +33,26 @@
         <input type = "text" name = "tablename">
         <label>choose table</label><br>
     </form>
+    <form method = "POST" action = "/choose-table">
+        <button type = "submit" name = "tablename" value = "flights_in_the_air">
+            <label>flights_in_the_air view</label>
+        </button>
+        <button type = "submit" name = "tablename" value = "flights_on_the_ground">
+            <label>flights_in_the_ground view</label>
+        </button>
+        <button type = "submit" name = "tablename" value = "people_in_the_air">
+            <label>people_in_the_air view</label>
+        </button>
+        <button type = "submit" name = "tablename" value = "people_on_the_ground">
+            <label>people_on_the_ground view</label>
+        </button>
+        <button type = "submit" name = "tablename" value = "route_summary">
+            <label>route_summary view</label>
+        </button>
+        <button type = "submit" name = "tablename" value = "alternative_airports">
+            <label>alternative_airports view</label>
+        </button>
+    </form>
     <h1>display</h1>
     <ul>
     {% for item in table %}

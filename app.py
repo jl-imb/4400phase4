@@ -3,7 +3,9 @@ from db.db import *
 
 app = Flask(__name__)
 
-
+@app.route('/')
+def home():
+    return render_template('home.html')
 @app.route('/choose-table', methods=['POST'])
 def showdb():  # put application's code here
     if request.method == 'POST':
