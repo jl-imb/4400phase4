@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Flight Tracking System</title>
+    <style>
+        .navbar {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .nav-button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .nav-button:hover {
+            background-color: #333;
+        }
+    </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="/add_airplane" class="nav-button">Add Airplane</a>
+    </div>
+
     <h1>Test</h1>
     <form method="POST" action="/testing">
         <label>AirlineID</label><br>
