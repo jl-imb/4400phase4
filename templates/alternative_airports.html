@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alternative Airports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #c0c0c0;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>alternative_airports()</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>city</th>
+                    <th>state</th>
+                    <th>country</th>
+                    <th>num_airports</th>
+                    <th>airport_code_list</th>
+                    <th>airport_names_list</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data %}
+                    {% for row in data %}
+                    <tr>
+                        <td>{{ row.city }}</td>
+                        <td>{{ row.state }}</td>
+                        <td>{{ row.country }}</td>
+                        <td>{{ row.num_airports }}</td>
+                        <td>{{ row.airport_code_list }}</td>
+                        <td>{{ row.airport_names_list }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align: center;">No alternative airports available</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 30px;">
+            <a href="/" style="background-color: #555; color: white; border: none; padding: 10px 20px; text-decoration: none;">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

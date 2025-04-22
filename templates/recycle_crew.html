@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recycle Crew</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-field {
+            display: flex;
+            border: 1px solid #ccc;
+            width: 60%;
+            margin-bottom: 15px;
+        }
+        .field-label {
+            background-color: #c0c0c0;
+            padding: 10px;
+            width: 150px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .field-input {
+            padding: 10px;
+            flex: 1;
+            border: none;
+            width: 100%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            width: 100%;
+        }
+        .btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 40px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>recycle_crew()</h1>
+        
+        <form method="POST" action="/recycle_crew">
+            <div class="form-container">
+                <div class="form-field">
+                    <div class="field-label">ip_flightID</div>
+                    <input type="text" name="flightID" class="field-input" value="ba_51">
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <button type="button" class="btn" onclick="window.location.href='/'">Cancel</button>
+                <button type="submit" class="btn">Recycle</button>
+            </div>
+        </form>
+        
+        {% if reason %}
+        <div style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc;">
+            <strong>Result:</strong> {{ reason }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html> 

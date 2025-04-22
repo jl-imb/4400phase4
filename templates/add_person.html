@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Person</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .form-field {
+            display: flex;
+            border: 1px solid #ccc;
+        }
+        .field-label {
+            background-color: #c0c0c0;
+            padding: 10px;
+            width: 120px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .field-input {
+            padding: 10px;
+            flex: 1;
+            border: none;
+            width: 100%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 40px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>add_person()</h1>
+        
+        <form method="POST" action="/add_person">
+            <div class="form-grid">
+                <div class="form-field">
+                    <div class="field-label">Person ID</div>
+                    <input type="text" name="personID" class="field-input" value="p61">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">First Name</div>
+                    <input type="text" name="fname" class="field-input" value="Sabrina">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Last Name</div>
+                    <input type="text" name="lname" class="field-input" value="Duncan">
+                </div>
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-field">
+                    <div class="field-label">Location ID</div>
+                    <input type="text" name="locID" class="field-input" value="port_1">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Tax ID</div>
+                    <input type="text" name="taxID" class="field-input" value="366-50-3732">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Experience</div>
+                    <input type="text" name="exp" class="field-input" value="27">
+                </div>
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-field">
+                    <div class="field-label">Miles</div>
+                    <input type="text" name="miles" class="field-input" value="NULL">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Funds</div>
+                    <input type="text" name="funds" class="field-input" value="NULL">
+                </div>
+                
+                <div style="width: 1fr;">
+                    <!-- Empty column to maintain grid layout -->
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <button type="button" class="btn" onclick="window.location.href='/'">Cancel</button>
+                <button type="submit" class="btn">Add</button>
+            </div>
+        </form>
+        
+        {% if reason %}
+        <div style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc;">
+            <strong>Result:</strong> {{ reason }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html> 

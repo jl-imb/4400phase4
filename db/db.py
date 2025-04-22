@@ -247,6 +247,78 @@ def simulation_cycle():
         return 0, (f"Error: {str(e)}")
     return fetchresponse(conn, cursor)
 
+def get_flights_in_the_air():
+    conn, cursor = test_connection()
+    try:
+        cursor.execute("SELECT * FROM flights_in_the_air")
+        results = cursor.fetchall()
+        close_connection(conn, cursor)
+        return results
+    except Exception as e:
+        print("Error retrieving flights_in_the_air:", e)
+        close_connection(conn, cursor)
+        return []
+
+def get_flights_on_the_ground():
+    conn, cursor = test_connection()
+    try:
+        cursor.execute("SELECT * FROM flights_on_the_ground")
+        results = cursor.fetchall()
+        close_connection(conn, cursor)
+        return results
+    except Exception as e:
+        print("Error retrieving flights_on_the_ground:", e)
+        close_connection(conn, cursor)
+        return []
+
+def get_people_in_the_air():
+    conn, cursor = test_connection()
+    try:
+        cursor.execute("SELECT * FROM people_in_the_air")
+        results = cursor.fetchall()
+        close_connection(conn, cursor)
+        return results
+    except Exception as e:
+        print("Error retrieving people_in_the_air:", e)
+        close_connection(conn, cursor)
+        return []
+
+def get_people_on_the_ground():
+    conn, cursor = test_connection()
+    try:
+        cursor.execute("SELECT * FROM people_on_the_ground")
+        results = cursor.fetchall()
+        close_connection(conn, cursor)
+        return results
+    except Exception as e:
+        print("Error retrieving people_on_the_ground:", e)
+        close_connection(conn, cursor)
+        return []
+
+def get_route_summary():
+    conn, cursor = test_connection()
+    try:
+        cursor.execute("SELECT * FROM route_summary")
+        results = cursor.fetchall()
+        close_connection(conn, cursor)
+        return results
+    except Exception as e:
+        print("Error retrieving route_summary:", e)
+        close_connection(conn, cursor)
+        return []
+
+def get_alternative_airports():
+    conn, cursor = test_connection()
+    try:
+        cursor.execute("SELECT * FROM alternative_airports")
+        results = cursor.fetchall()
+        close_connection(conn, cursor)
+        return results
+    except Exception as e:
+        print("Error retrieving alternative_airports:", e)
+        close_connection(conn, cursor)
+        return []
+
 
 
 

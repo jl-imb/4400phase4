@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Route Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #c0c0c0;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>route_summary()</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>route</th>
+                    <th>num_legs</th>
+                    <th>leg_sequence</th>
+                    <th>route_length</th>
+                    <th>num_flights</th>
+                    <th>flight_list</th>
+                    <th>airport_sequence</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data %}
+                    {% for row in data %}
+                    <tr>
+                        <td>{{ row.route }}</td>
+                        <td>{{ row.num_legs }}</td>
+                        <td>{{ row.leg_sequence }}</td>
+                        <td>{{ row.route_length }}</td>
+                        <td>{{ row.num_flights }}</td>
+                        <td>{{ row.flight_list }}</td>
+                        <td>{{ row.airport_sequence }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="7" style="text-align: center;">No route summaries available</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 30px;">
+            <a href="/" style="background-color: #555; color: white; border: none; padding: 10px 20px; text-decoration: none;">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html> 

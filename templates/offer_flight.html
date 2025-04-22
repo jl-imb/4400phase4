@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Offer Flight</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .form-field {
+            display: flex;
+            border: 1px solid #ccc;
+        }
+        .field-label {
+            background-color: #c0c0c0;
+            padding: 10px;
+            width: 120px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .field-input {
+            padding: 10px;
+            flex: 1;
+            border: none;
+            width: 100%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 40px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>offer_flight()</h1>
+        
+        <form method="POST" action="/offer_flight">
+            <div class="form-grid">
+                <div class="form-field">
+                    <div class="field-label">Flight ID</div>
+                    <input type="text" name="flightID" class="field-input" value="un_41">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Route ID</div>
+                    <input type="text" name="routeID" class="field-input" value="americas_three">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Support Airline</div>
+                    <input type="text" name="airline" class="field-input" value="United">
+                </div>
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-field">
+                    <div class="field-label">Progress</div>
+                    <input type="text" name="progress" class="field-input" value="0">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Next Time</div>
+                    <input type="text" name="nexttime" class="field-input" value="11:30:00">
+                </div>
+                
+                <div class="form-field">
+                    <div class="field-label">Support Tail</div>
+                    <input type="text" name="tail" class="field-input" value="n330ss">
+                </div>
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-field">
+                    <div class="field-label">Cost</div>
+                    <input type="text" name="cost" class="field-input" value="400">
+                </div>
+                
+                <div style="width: 1fr;">
+                    <!-- Empty space for grid alignment -->
+                </div>
+                
+                <div style="width: 1fr;">
+                    <!-- Empty space for grid alignment -->
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <button type="button" class="btn" onclick="window.location.href='/'">Cancel</button>
+                <button type="submit" class="btn">Add</button>
+            </div>
+        </form>
+        
+        {% if reason %}
+        <div style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc;">
+            <strong>Result:</strong> {{ reason }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html> 
