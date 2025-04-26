@@ -160,7 +160,7 @@ def flight_landing(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('flight_landing',
-                   (str(flightID)))
+                   [(str(flightID))])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -172,7 +172,7 @@ def flight_takeoff(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('flight_takeoff',
-                   (str(flightID)))
+                   [(str(flightID))])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -184,19 +184,19 @@ def passengers_board(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('passengers_board',
-                   (str(flightID)))
+                   [(str(flightID))])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
     return fetchresponse(conn, cursor)
 
-def flight_disembark(flightID):
+def passengers_disembark(flightID):
     if (flightID == "" or flightID.lower() == "null"):
         return 0, "null vals"
     conn, cursor = test_connection()
     try:
-        cursor.callproc('flight_disembark',
-                   (str(flightID)))
+        cursor.callproc('passengers_disembark',
+                   [(str(flightID))])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -220,7 +220,7 @@ def recycle_crew(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('recycle_crew',
-                   (str(flightID)))
+                   [(str(flightID))])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -232,7 +232,7 @@ def retire_flight(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('retire_flight',
-                   (str(flightID)))
+                   [(str(flightID))])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")

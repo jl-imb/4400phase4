@@ -114,15 +114,15 @@ def passengers_board_page():
     else:
         return render_template("passengers_board.html")
 
-@app.route('/flight_disembark', methods=['GET', 'POST'])
-def flight_disembark_page():
+@app.route('/passengers_disembark', methods=['GET', 'POST'])
+def passengers_disembark_page():
     if request.method == 'POST':
         flightID = request.form["flightID"]
-        status, reason = flight_disembark(flightID)
+        status, reason = passengers_disembark(flightID)
         print(reason)
-        return render_template("flight_disembark.html", reason=reason)
+        return render_template("passengers_disembark.html", reason=reason)
     else:
-        return render_template("flight_disembark.html")
+        return render_template("passengers_disembark.html")
 
 @app.route('/assign_pilot', methods=['GET', 'POST'])
 def assign_pilot_page():
