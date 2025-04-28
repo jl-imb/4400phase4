@@ -46,7 +46,8 @@
             box-sizing: border-box;
             background-color: #f5f5f5;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            min-height: 600px;
+            min-height: auto;
+            overflow-x: auto;
         }
         h1 {
             font-size: 28px;
@@ -63,6 +64,9 @@
             padding: 15px;
             text-align: left;
             border: 1px solid #ccc;
+            word-wrap: break-word; /* Enables text wrapping */
+            overflow-wrap: break-word; /* Alternative property for modern browsers */
+            white-space: normal; /* Ensures text wraps instead of staying on one line */
         }
         th {
             background-color: #c0c0c0;
@@ -122,12 +126,16 @@
             <table>
                 <thead>
                     <tr>
-                        <th>flightID</th>
-                        <th>from_airport</th>
-                        <th>to_airport</th>
-                        <th>airplane_id</th>
+                        <th>departing_from</th>
+                        <th>arriving_at</th>
+                        <th>num_airplanes</th>
+                        <th>airplane_list</th>
+                        <th>flight_list</th>
+                        <th>earliest_arrival</th>
+                        <th>latest_arrival</th>
                         <th>num_pilots</th>
                         <th>num_passengers</th>
+                        <th>joint_pilots_passengers</th>
                         <th>person_list</th>
                     </tr>
                 </thead>
@@ -135,12 +143,16 @@
                     {% if data %}
                         {% for row in data %}
                         <tr>
-                            <td>{{ row.flightID }}</td>
-                            <td>{{ row.from_airport }}</td>
-                            <td>{{ row.to_airport }}</td>
-                            <td>{{ row.airplane_id }}</td>
+                            <td>{{ row.departing_from }}</td>
+                            <td>{{ row.arriving_at }}</td>
+                            <td>{{ row.num_airplanes }}</td>
+                            <td>{{ row.airplane_list }}</td>
+                            <td>{{ row.flight_list }}</td>
+                            <td>{{ row.earliest_arrival }}</td>
+                            <td>{{ row.latest_arrival }}</td>
                             <td>{{ row.num_pilots }}</td>
                             <td>{{ row.num_passengers }}</td>
+                            <td>{{ row.joint_pilots_passengers }}</td>
                             <td>{{ row.person_list }}</td>
                         </tr>
                         {% endfor %}

@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5bd3064b-73c4-4224-abcd-ee186e44fcc7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/flight_disembark.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/passengers_disembark.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/alternative_airports.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/alternative_airports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/people_in_the_air.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/people_in_the_air.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/people_on_the_ground.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/people_on_the_ground.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/route_summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/route_summary.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,7 @@
       <workItem from="1744741430745" duration="1494000" />
       <workItem from="1744904319656" duration="601000" />
       <workItem from="1744921643479" duration="22549000" />
-      <workItem from="1745653961917" duration="2724000" />
+      <workItem from="1745653961917" duration="7638000" />
     </task>
     <servers />
   </component>

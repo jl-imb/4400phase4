@@ -40,13 +40,17 @@ def fetchresponse(conn, cursor):
     return status, reason
 
 def add_airplane(airplaneID, tailnum, seatcap, speed, locID, type, maintenanced, model, neo):
-    if airplaneID == "" or tailnum == "" or seatcap == "" or speed == "" or locID == "" or type == "":
+    if airplaneID == "" or tailnum == "" or seatcap == "" or speed == "" or locID == "":
         return 0, "null vals"
     conn, cursor = test_connection()
     if maintenanced == "NULL" or maintenanced is None or maintenanced == "":
         maintenanced = None
     else:
         maintenanced = str(maintenanced)
+    if type.upper() == "AIRBUS" or type.upper() == "BOEING":
+        type = str(type);
+    elif type == "NULL" or type is None or type.upper() == "NEITHER" or type == "":
+        type = None;
     if model == "NULL" or model is None or model == "":
         model = None
     else:
@@ -59,7 +63,7 @@ def add_airplane(airplaneID, tailnum, seatcap, speed, locID, type, maintenanced,
     try:
         cursor.callproc('add_airplane',
                    [(str(airplaneID)), (str(tailnum)),(str(seatcap)), (str(speed)), (str(locID)),
-                   (str(type)), maintenanced, model, neo])
+                   type, maintenanced, model, neo])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -101,16 +105,24 @@ def add_person(personID, fname, lname, locID, taxID, exp, miles, funds):
     if taxID == "NULL" or taxID is None or taxID == "":
         taxID = None
     else:
+        if exp == "NULL" or exp is None or exp == "":
+            return 0, "null vals"
         taxID = str(taxID)
     if exp == "NULL" or exp is None or exp == "":
         exp = None
     else:
+        if taxID == "NULL" or taxID is None or taxID == "":
+            return 0, "null vals"
         exp = str(exp)
     if miles == "NULL" or miles is None or miles == "":
+        if funds == "NULL" or funds is None or funds == "":
+            return 0, "null vals"
         miles = None
     else:
         miles = str(miles)
     if funds == "NULL" or funds is None or funds == "":
+        if miles == "NULL" or miles is None or miles == "":
+            return 0, "null vals"
         funds = None
     else:
         funds = str(funds)
