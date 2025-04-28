@@ -125,6 +125,8 @@
                         <th>departing_from</th>
                         <th>num_flights</th>
                         <th>flight_list</th>
+                        <th>earliest_arrival</th>
+                        <th>latest_arrival</th>
                         <th>airplane_list</th>
                     </tr>
                 </thead>
@@ -135,12 +137,14 @@
                             <td>{{ row.departing_from }}</td>
                             <td>{{ row.num_flights }}</td>
                             <td>{{ row.flight_list }}</td>
+                            <td>{{ row.earliest_arrival }}</td>
+                            <td>{{ row.latest_arrival }}</td>
                             <td>{{ row.airplane_list }}</td>
                         </tr>
                         {% endfor %}
                     {% else %}
                         <tr>
-                            <td colspan="4" style="text-align: center;">No flights currently on the ground</td>
+                            <td colspan="6" style="text-align: center;">No flights currently on the ground</td>
                         </tr>
                     {% endif %}
                 </tbody>
