@@ -62,7 +62,7 @@ def add_airplane(airplaneID, tailnum, seatcap, speed, locID, type, maintenanced,
 
     try:
         cursor.callproc('add_airplane',
-                   [(str(airplaneID)), (str(tailnum)),(str(seatcap)), (str(speed)), (str(locID)),
+                   [str(airplaneID), str(tailnum), str(seatcap), str(speed), str(locID),
                    type, maintenanced, model, neo])
     except Exception as e:
         print("hi")
@@ -87,8 +87,8 @@ def add_airport(airportID, name, city, state, country, locID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('add_airport',
-                   [(str(airportID)), (str(name)),(str(city)), (str(state)), (str(country)),
-                   (str(locID))])
+                   [str(airportID), str(name), str(city), str(state), str(country),
+                   str(locID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -128,7 +128,7 @@ def add_person(personID, fname, lname, locID, taxID, exp, miles, funds):
         funds = str(funds)
     try:
         cursor.callproc('add_person',
-                   [(str(personID)), (str(fname)),(str(lname)), (str(locID)), taxID, exp, miles, funds])
+                   [str(personID), str(fname), str(lname), str(locID), taxID, exp, miles, funds])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -142,7 +142,7 @@ def grant_or_revoke_pilot_license(personID, license):
     conn, cursor = test_connection()
     try:
         cursor.callproc('grant_or_revoke_pilot_license',
-                   [(str(personID)), (str(license))])
+                   [str(personID), str(license)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -157,14 +157,16 @@ def offer_flight(flightID, routeID, airline, tail, progress, nexttime, cost):
         cost.lower() == "null"):
         return 0, "null vals"
     conn, cursor = test_connection()
+    if conn == 0:
+        return 0, "Database connection failed"
     try:
         cursor.callproc('offer_flight',
-                   [(str(flightID)), (str(routeID)), (str(airline)), (str(tail)), (str(progress))
-                    , (str(nexttime)), (str(cost))])
+                   [str(flightID), str(routeID), str(airline), str(tail), str(progress),
+                    str(nexttime), str(cost)])
+        return fetchresponse(conn, cursor)
     except Exception as e:
-        print("hi")
-        return 0, (f"Error: {str(e)}")
-    return fetchresponse(conn, cursor)
+        close_connection(conn, cursor)
+        return 0, f"Error: {str(e)}"
 
 def flight_landing(flightID):
     if (flightID == "" or flightID.lower() == "null"):
@@ -172,7 +174,7 @@ def flight_landing(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('flight_landing',
-                   [(str(flightID))])
+                   [str(flightID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -184,7 +186,7 @@ def flight_takeoff(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('flight_takeoff',
-                   [(str(flightID))])
+                   [str(flightID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -196,7 +198,7 @@ def passengers_board(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('passengers_board',
-                   [(str(flightID))])
+                   [str(flightID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -208,7 +210,7 @@ def passengers_disembark(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('passengers_disembark',
-                   [(str(flightID))])
+                   [str(flightID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -220,7 +222,7 @@ def assign_pilot(flightID, personID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('assign_pilot',
-                   [(str(flightID)), (str(personID))])
+                   [str(flightID), str(personID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -232,7 +234,7 @@ def recycle_crew(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('recycle_crew',
-                   [(str(flightID))])
+                   [str(flightID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
@@ -244,7 +246,7 @@ def retire_flight(flightID):
     conn, cursor = test_connection()
     try:
         cursor.callproc('retire_flight',
-                   [(str(flightID))])
+                   [str(flightID)])
     except Exception as e:
         print("hi")
         return 0, (f"Error: {str(e)}")
