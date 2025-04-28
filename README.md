@@ -16,12 +16,11 @@
 
 ## How to Run the Application
 
-1. Instructions for MySQL database stuff
-2. Run the Flask application:
+1. Run the Flask application:
    ```
    python app.py
    ```
-4. Open a web browser and navigate to: `http://localhost:5000`
+2. Open a web browser and navigate to: `http://localhost:5000`
 
 ## Technologies Used
 
@@ -39,9 +38,9 @@
 
 Our team of 4 members divided the work as follows:
 
-- **Team Member 1**: blah blah
+- **Joanne Limb**: Backend and database connection
 - **Joie Yeung**: Frontend HTML/CSS templates, UI design
-- **Team Member 3**: blah blah
-- **Team Member 4**: blah blah
+- **Alex Park**: Debugging SQL procedures
+- **Kathy Park**: Debugging SQL procedures
 
 All team members contributed to the overall application and collaborated on integrating the different components together.
