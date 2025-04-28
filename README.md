@@ -5,9 +5,11 @@
 - MySQL Server
 - pip (Python package installer)
 
-1. Add instructions for database set up here
-1. Clone this repository
-2. Install dependencies:
+1. Set up the database by running flight_tracking database set up sql file
+2. Load the stored procedures and views onto the database by running the sql file with all stored procedures and views
+3. Get the user and host login details and load them into config.py file so the backend can connect to the database
+4. Clone this repository
+5. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
