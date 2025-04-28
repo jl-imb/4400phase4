@@ -2,33 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flights On The Ground</title>
     <style>
-        body {
+        html, body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
         }
-        .container {
-            border: 1px solid #ccc;
-            margin: 0 auto;
-            max-width: 1200px;
-            padding: 20px;
+        .page-header {
+            width: 100%;
+            color: black;
+            padding-top: 50px;
+            padding-left: 50px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .procedure-title {
+            font-size: 45px;
+            margin: 0;
+            font-weight: bold;
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 30px;
             box-sizing: border-box;
         }
+        .container {
+            border: 1px solid black;
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: normal;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         th, td {
-            padding: 10px;
+            padding: 15px;
             text-align: left;
             border: 1px solid #ccc;
         }
@@ -39,45 +71,84 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        .btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 50px;
+                width: 95%;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .content-wrapper {
+                align-items: flex-start;
+                padding: 20px;
+            }
+            .container {
+                padding: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>flights_on_the_ground()</h1>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>departing_from</th>
-                    <th>num_flights</th>
-                    <th>flight_list</th>
-                    <th>earliest_arrival</th>
-                    <th>latest_arrival</th>
-                    <th>airplane_list</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if data %}
-                    {% for row in data %}
+    <header class="page-header">
+        <h2 class="procedure-title">View: Flights On The Ground</h2>
+    </header>
+    
+    <div class="content-wrapper">
+        <div class="container">
+            <h1>flights_on_the_ground()</h1>
+            
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ row.departing_from }}</td>
-                        <td>{{ row.num_flights }}</td>
-                        <td>{{ row.flight_list }}</td>
-                        <td>{{ row.earliest_arrival }}</td>
-                        <td>{{ row.latest_arrival }}</td>
-                        <td>{{ row.airplane_list }}</td>
+                        <th>departing_from</th>
+                        <th>num_flights</th>
+                        <th>flight_list</th>
+                        <th>airplane_list</th>
                     </tr>
-                    {% endfor %}
-                {% else %}
-                    <tr>
-                        <td colspan="6" style="text-align: center;">No flights currently on the ground</td>
-                    </tr>
-                {% endif %}
-            </tbody>
-        </table>
-        
-        <div style="margin-top: 30px;">
-            <a href="/" style="background-color: #555; color: white; border: none; padding: 10px 20px; text-decoration: none;">Back to Home</a>
+                </thead>
+                <tbody>
+                    {% if data %}
+                        {% for row in data %}
+                        <tr>
+                            <td>{{ row.departing_from }}</td>
+                            <td>{{ row.num_flights }}</td>
+                            <td>{{ row.flight_list }}</td>
+                            <td>{{ row.airplane_list }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No flights currently on the ground</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            
+            <div>
+                <a href="/" class="btn">Back to Home</a>
+            </div>
         </div>
     </div>
 </body>

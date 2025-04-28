@@ -2,134 +2,197 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Person</title>
     <style>
-        body {
+        html, body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
         }
-        .container {
-            border: 1px solid #ccc;
-            margin: 0 auto;
-            max-width: 1000px;
-            padding: 20px;
+        .page-header {
+            width: 100%;
+            color: black;
+            padding-top: 50px;
+            padding-left: 50px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .procedure-title {
+            font-size: 45px;
+            margin: 0;
+            font-weight: bold;
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 30px;
             box-sizing: border-box;
         }
+        .container {
+            border: 1px solid black;
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: normal;
         }
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
         }
         .form-field {
             display: flex;
             border: 1px solid #ccc;
+            flex-direction: column;
         }
         .field-label {
             background-color: #c0c0c0;
-            padding: 10px;
-            width: 120px;
+            padding: 15px;
             font-weight: bold;
             display: flex;
             align-items: center;
+            font-size: 16px;
         }
         .field-input {
-            padding: 10px;
-            flex: 1;
+            padding: 15px;
             border: none;
             width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
         }
         .button-container {
             display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
+            justify-content: center;
+            margin-top: 100px;
+            flex-wrap: wrap;
+            gap: 33%;
         }
         .btn {
             background-color: #555;
             color: white;
             border: none;
-            padding: 10px 40px;
+            padding: 15px 50px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
         }
         .btn:hover {
             background-color: #333;
         }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 50px;
+                width: 95%;
+            }
+            .form-field {
+                flex-direction: row;
+            }
+            .field-label {
+                width: 150px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .content-wrapper {
+                align-items: flex-start;
+                padding: 20px;
+            }
+            .container {
+                padding: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>add_person()</h1>
-        
-        <form method="POST" action="/add_person">
-            <div class="form-grid">
-                <div class="form-field">
-                    <div class="field-label">Person ID</div>
-                    <input type="text" name="personID" class="field-input" value="p61">
-                </div>
-                
-                <div class="form-field">
-                    <div class="field-label">First Name</div>
-                    <input type="text" name="fname" class="field-input" value="Sabrina">
-                </div>
-                
-                <div class="form-field">
-                    <div class="field-label">Last Name</div>
-                    <input type="text" name="lname" class="field-input" value="Duncan">
-                </div>
-            </div>
+    <header class="page-header">
+        <h2 class="procedure-title">Procedure: Add Person</h2>
+    </header>
+    
+    <div class="content-wrapper">
+        <div class="container">
+            <h1>add_person()</h1>
             
-            <div class="form-grid">
-                <div class="form-field">
-                    <div class="field-label">Location ID</div>
-                    <input type="text" name="locID" class="field-input" value="port_1">
+            <form method="POST" action="/add_person">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <div class="field-label">Person ID</div>
+                        <input type="text" name="personID" class="field-input">
+                    </div>
+                    
+                    <div class="form-field">
+                        <div class="field-label">First Name</div>
+                        <input type="text" name="fname" class="field-input">
+                    </div>
+                    
+                    <div class="form-field">
+                        <div class="field-label">Last Name</div>
+                        <input type="text" name="lname" class="field-input">
+                    </div>
                 </div>
                 
-                <div class="form-field">
-                    <div class="field-label">Tax ID</div>
-                    <input type="text" name="taxID" class="field-input" value="366-50-3732">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <div class="field-label">Location ID</div>
+                        <input type="text" name="locID" class="field-input">
+                    </div>
+                    
+                    <div class="form-field">
+                        <div class="field-label">Tax ID</div>
+                        <input type="text" name="taxID" class="field-input">
+                    </div>
+                    
+                    <div class="form-field">
+                        <div class="field-label">Experience</div>
+                        <input type="text" name="exp" class="field-input">
+                    </div>
                 </div>
                 
-                <div class="form-field">
-                    <div class="field-label">Experience</div>
-                    <input type="text" name="exp" class="field-input" value="27">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <div class="field-label">Miles</div>
+                        <input type="text" name="miles" class="field-input">
+                    </div>
+                    
+                    <div class="form-field">
+                        <div class="field-label">Funds</div>
+                        <input type="text" name="funds" class="field-input">
+                    </div>
                 </div>
-            </div>
+                
+                <div class="button-container">
+                    <button type="button" class="btn" onclick="window.location.href='/'">Cancel</button>
+                    <button type="submit" class="btn">Add</button>
+                </div>
+            </form>
             
-            <div class="form-grid">
-                <div class="form-field">
-                    <div class="field-label">Miles</div>
-                    <input type="text" name="miles" class="field-input" value="NULL">
-                </div>
-                
-                <div class="form-field">
-                    <div class="field-label">Funds</div>
-                    <input type="text" name="funds" class="field-input" value="NULL">
-                </div>
-                
-                <div style="width: 1fr;">
-                    <!-- Empty column to maintain grid layout -->
-                </div>
+            {% if reason %}
+            <div style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc;">
+                <strong>Result:</strong> {{ reason }}
             </div>
-            
-            <div class="button-container">
-                <button type="button" class="btn" onclick="window.location.href='/'">Cancel</button>
-                <button type="submit" class="btn">Add</button>
-            </div>
-        </form>
-        
-        {% if reason %}
-        <div style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc;">
-            <strong>Result:</strong> {{ reason }}
+            {% endif %}
         </div>
-        {% endif %}
     </div>
 </body>
 </html> 

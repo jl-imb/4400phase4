@@ -2,104 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Tracking System</title>
     <style>
-        .navbar {
-            background-color: #f0f0f0;
-            padding: 10px;
+        html, body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            width: 100%;
+            background-color: white;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .section {
+            margin-bottom: 80px;
+            border: 1px solid black;
+            padding: 40px;
+            background-color: #f5f5f5;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 60px;
             margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #555;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 40px;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            justify-content: center;
         }
         .nav-button {
             background-color: #555;
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 15px 25px;
             text-decoration: none;
             display: inline-block;
-            margin-right: 10px;
             cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
         }
         .nav-button:hover {
             background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 767px) {
+            .container {
+                padding: 20px;
+            }
+            .section {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 40px;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            .nav-button {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="/add_airplane" class="nav-button">Add Airplane</a>
-        <a href="/add_airport" class="nav-button">Add Airport</a>
-        <a href="/add_person" class="nav-button">Add Person</a>
-        <a href="/grant_revoke_license" class="nav-button">Grant/Revoke License</a>
-        <a href="/offer_flight" class="nav-button">Offer Flight</a>
-        <a href="/flight_landing" class="nav-button">Flight Landing</a>
-        <a href="/flight_takeoff" class="nav-button">Flight Takeoff</a>
-        <a href="/passengers_board" class="nav-button">Passengers Board</a>
-        <a href="/passengers_disembark" class="nav-button">Passengers Disembark</a>
-        <a href="/assign_pilot" class="nav-button">Assign Pilot</a>
-        <a href="/recycle_crew" class="nav-button">Recycle Crew</a>
-        <a href="/retire_flight" class="nav-button">Retire Flight</a>
-        <a href="/simulation_cycle" class="nav-button">Simulation Cycle</a>
-        <a href="/flights_in_the_air" class="nav-button">Flights In The Air</a>
-        <a href="/flights_on_the_ground" class="nav-button">Flights On The Ground</a>
-        <a href="/people_in_the_air" class="nav-button">People In The Air</a>
-        <a href="/people_on_the_ground" class="nav-button">People On The Ground</a>
-        <a href="/route_summary" class="nav-button">Route Summary</a>
-        <a href="/alternative_airports" class="nav-button">Alternative Airports</a>
+    <div class="header">
+        <h1>Flight Tracking System</h1>
     </div>
-
-    <h1>Test</h1>
-    <form method="POST" action="/testing">
-        <label>AirlineID</label><br>
-        <input type="text" name="airlineID"><br><br>
-        <label>tailnum</label><br>
-        <input type="text" name="tailnum"><br><br>
-        <label>seatcap</label><br>
-        <input type="text" name="seatcap"><br><br>
-        <label>speed</label><br>
-        <input type="text" name="speed"><br><br>
-        <label>locID</label><br>
-        <input type="text" name="locID"><br><br>
-        <label>Plane type</label><br>
-        <input type="text" name="type"><br><br>
-        <label>maintained</label><br>
-        <input type="text" name="maintained"><br><br>
-        <label>Model</label><br>
-        <input type="text" name="model"><br><br>
-        <label>neo</label><br>
-        <input type="text" name="neo"><br><br>
-
-        <input type="submit" value="Submit">
-    </form>
-    <h1>result {{ reason }} </h1>
-    <form method = "POST" action = "/choose-table">
-        <input type = "text" name = "tablename">
-        <label>choose table</label><br>
-    </form>
-    <form method = "POST" action = "/choose-table">
-        <button type = "submit" name = "tablename" value = "flights_in_the_air">
-            <label>flights_in_the_air view</label>
-        </button>
-        <button type = "submit" name = "tablename" value = "flights_on_the_ground">
-            <label>flights_in_the_ground view</label>
-        </button>
-        <button type = "submit" name = "tablename" value = "people_in_the_air">
-            <label>people_in_the_air view</label>
-        </button>
-        <button type = "submit" name = "tablename" value = "people_on_the_ground">
-            <label>people_on_the_ground view</label>
-        </button>
-        <button type = "submit" name = "tablename" value = "route_summary">
-            <label>route_summary view</label>
-        </button>
-        <button type = "submit" name = "tablename" value = "alternative_airports">
-            <label>alternative_airports view</label>
-        </button>
-    </form>
-    <h1>display</h1>
-    <ul>
-    {% for item in table %}
-        <li>{{ item }}</li>
-    {% endfor %}
-    </ul>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Procedures</h2>
+            <div class="button-group">
+                <a href="/add_airplane" class="nav-button">Add Airplane</a>
+                <a href="/add_airport" class="nav-button">Add Airport</a>
+                <a href="/add_person" class="nav-button">Add Person</a>
+                <a href="/grant_revoke_license" class="nav-button">Grant/Revoke License</a>
+                <a href="/offer_flight" class="nav-button">Offer Flight</a>
+                <a href="/flight_landing" class="nav-button">Flight Landing</a>
+                <a href="/flight_takeoff" class="nav-button">Flight Takeoff</a>
+                <a href="/passengers_board" class="nav-button">Passengers Board</a>
+                <a href="/passengers_disembark" class="nav-button">Passengers Disembark</a>
+                <a href="/assign_pilot" class="nav-button">Assign Pilot</a>
+                <a href="/recycle_crew" class="nav-button">Recycle Crew</a>
+                <a href="/retire_flight" class="nav-button">Retire Flight</a>
+                <a href="/simulation_cycle" class="nav-button">Simulation Cycle</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Views</h2>
+            <div class="button-group">
+                <a href="/flights_in_the_air" class="nav-button">Flights In The Air</a>
+                <a href="/flights_on_the_ground" class="nav-button">Flights On The Ground</a>
+                <a href="/people_in_the_air" class="nav-button">People In The Air</a>
+                <a href="/people_on_the_ground" class="nav-button">People On The Ground</a>
+                <a href="/route_summary" class="nav-button">Route Summary</a>
+                <a href="/alternative_airports" class="nav-button">Alternative Airports</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
