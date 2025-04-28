@@ -127,6 +127,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>departing_from</th>
                         <th>airport</th>
                         <th>airport_name</th>
                         <th>city</th>
@@ -134,6 +135,7 @@
                         <th>country</th>
                         <th>num_pilots</th>
                         <th>num_passengers</th>
+                        <th>joint_pilots_passengers</th>
                         <th>person_list</th>
                     </tr>
                 </thead>
@@ -141,6 +143,7 @@
                     {% if data %}
                         {% for row in data %}
                         <tr>
+                            <td>{{ row.departing_from }}</td>
                             <td>{{ row.airport }}</td>
                             <td>{{ row.airport_name }}</td>
                             <td>{{ row.city }}</td>
@@ -148,12 +151,13 @@
                             <td>{{ row.country }}</td>
                             <td>{{ row.num_pilots }}</td>
                             <td>{{ row.num_passengers }}</td>
+                            <td>{{ row.joint_pilots_passengers }}</td>
                             <td>{{ row.person_list }}</td>
                         </tr>
                         {% endfor %}
                     {% else %}
                         <tr>
-                            <td colspan="8" style="text-align: center;">No people currently on the ground</td>
+                            <td colspan="10" style="text-align: center;">No people currently on the ground</td>
                         </tr>
                     {% endif %}
                 </tbody>

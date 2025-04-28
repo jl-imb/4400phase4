@@ -124,6 +124,7 @@
                     <tr>
                         <th>route_id</th>
                         <th>num_legs</th>
+                        <th>leg_sequence</th>
                         <th>route_length</th>
                         <th>num_flights</th>
                         <th>flight_list</th>
@@ -136,6 +137,7 @@
                         <tr>
                             <td>{{ row.route }}</td>
                             <td>{{ row.num_legs }}</td>
+                            <td>{{ row.leg_sequence }}</td>
                             <td>{{ row.route_length }}</td>
                             <td>{{ row.num_flights }}</td>
                             <td>{{ row.flight_list }}</td>
@@ -144,7 +146,7 @@
                         {% endfor %}
                     {% else %}
                         <tr>
-                            <td colspan="6" style="text-align: center;">No route summary available</td>
+                            <td colspan="7" style="text-align: center;">No route summary available</td>
                         </tr>
                     {% endif %}
                 </tbody>
